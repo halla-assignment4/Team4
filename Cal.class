@@ -67,7 +67,7 @@ public class Cal extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MyCal frame = new MyCal();
+					Cal frame = new Cal();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -80,8 +80,8 @@ public class Cal extends JFrame {
 	 * Create the frame.
 	 */
 	
-	public MyCal() {
-		setTitle("MyCal");
+	public Cal() {
+		setTitle("Cal");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 311, 348);
 		contentPane = new JPanel();
