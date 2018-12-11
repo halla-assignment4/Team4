@@ -24,11 +24,10 @@ public class GradeInput extends JFrame implements ActionListener {
     static Scanner sc = new Scanner(System.in);
     private ArrayList<GradeData> AL = new ArrayList<GradeData>();
     GradeData gradedata;
-    JButton btn1 = new JButton("ÀÔ·Â");
-    JButton btn2 = new JButton("Ãâ·Â");
-    JButton btn3 = new JButton("½ÃÇè¸í °Ë»ö");
-    JButton btn4 = new JButton("»èÁ¦");
-    JButton btn5 = new JButton("Á¾·á");
+    JButton btn1 = new JButton("ì…ë ¥");
+    JButton btn2 = new JButton("ì¶œë ¥");
+    JButton btn3 = new JButton("ì‹œí—˜ëª… ê²€ìƒ‰");
+    JButton btn4 = new JButton("ì‚­ì œ");
     JTextField tf = new JTextField(10);
     JTextField tf1 = new JTextField(10);
     JTextField tf2 = new JTextField(10);
@@ -42,19 +41,19 @@ public class GradeInput extends JFrame implements ActionListener {
     JTextArea ta = new JTextArea(15, 15);
  
  
-    JLabel jl = new JLabel("½ÃÇè¸í");
-    JLabel jl1 = new JLabel("±¹¾î");
-    JLabel jl2 = new JLabel("¿µ¾î");
-    JLabel jl3 = new JLabel("¼öÇĞ");
-    JLabel jl4 = new JLabel("Å½±¸1");
-    JLabel jl5 = new JLabel("Å½±¸2");
+    JLabel jl = new JLabel("ì‹œí—˜ëª…");
+    JLabel jl1 = new JLabel("êµ­ì–´");
+    JLabel jl2 = new JLabel("ì˜ì–´");
+    JLabel jl3 = new JLabel("ìˆ˜í•™");
+    JLabel jl4 = new JLabel("íƒêµ¬1");
+    JLabel jl5 = new JLabel("íƒêµ¬2");
  
     FlowLayout flow = new FlowLayout();
     public GradeInput() {
-        super("¼ºÀûÃ³¸®");
+        super("ì„±ì ì²˜ë¦¬");
  
  
-        //Label°ú TextField¸¦ frame¿¡ ³Ö¾îÁİ´Ï´Ù
+        //Labelê³¼ TextFieldë¥¼ frameì— ë„£ì–´ì¤ë‹ˆë‹¤
         p1.add(jl);
         p1.add(tf);
  
@@ -71,16 +70,15 @@ public class GradeInput extends JFrame implements ActionListener {
 
  
       
-        //¹öÆ°À» »ı¼ºÇÕ´Ï´Ù.
+        //ë²„íŠ¼ì„ ìƒì„±í•©ë‹ˆë‹¤.
         p2.add(btn1);
         p2.add(btn2);
         p2.add(btn4);
-        p2.add(btn5);
         
-        // frame¿¡ textAreaÀ»»ı¼ºÇÕ´Ï´Ù
+        // frameì— textAreaì„ìƒì„±í•©ë‹ˆë‹¤
         add(ta);
         
-        //panel p1, p2¸¦ °¢°¢ ºÏÂÊ ³²ÂÊÀ¸·Î ºÙ¿©Áİ´Ï´Ù
+        //panel p1, p2ë¥¼ ê°ê° ë¶ìª½ ë‚¨ìª½ìœ¼ë¡œ ë¶™ì—¬ì¤ë‹ˆë‹¤
         add(p1,"North");
         add(p2,"South");
  
@@ -92,27 +90,16 @@ public class GradeInput extends JFrame implements ActionListener {
  
  
  
-        //Ã¢ÀÇ Å©±â¸¦ 1800, 800À¸·Î Á¤ÇÕ´Ï´Ù
+        //ì°½ì˜ í¬ê¸°ë¥¼ 1800, 800ìœ¼ë¡œ ì •í•©ë‹ˆë‹¤
         this.setSize(1800, 800);
   
  
  
-        //¾×¼Ç¸®½º³Ê¸¦ ÅëÇØ ¹öÆ°ÀÇ ±â´ÉÀ» »ç¿ëÇÒ ¼ö ÀÖ°Ô ÇÕ´Ï´Ù.
+        //ì•¡ì…˜ë¦¬ìŠ¤ë„ˆë¥¼ í†µí•´ ë²„íŠ¼ì˜ ê¸°ëŠ¥ì„ ì‚¬ìš©í•  ìˆ˜ ìˆê²Œ í•©ë‹ˆë‹¤.
         btn1.addActionListener(this);
         btn2.addActionListener(this);
         btn4.addActionListener(this);
         btn5.addActionListener(this);
- 
- 
- 
-        //Ã¢ÀÇ XÇ¥½Ã·Î Á¾·áÇÒ¼ö ÀÖ°Ô ÇÕ´Ï´Ù.
-        addWindowListener(new WindowAdapter(){
- 
-            public void windowClosing(WindowEvent e){
- 
-                System.exit(0);
- 
-            } 
  
         }
                 );
@@ -126,32 +113,32 @@ public class GradeInput extends JFrame implements ActionListener {
     }
     
     
-    //°¢ ¹öÆ°ÀÇ ±â´ÉµéÀ» ³Ö¾îÁİ´Ï´Ù.
+    //ê° ë²„íŠ¼ì˜ ê¸°ëŠ¥ë“¤ì„ ë„£ì–´ì¤ë‹ˆë‹¤.
     @Override
     public void actionPerformed(ActionEvent e) {
         String str=e.getActionCommand();
         
-        //ÀÔ·Â ºÎºĞÀÔ´Ï´Ù
-        if(str.equals("ÀÔ·Â")){
+        //ì…ë ¥ ë¶€ë¶„ì…ë‹ˆë‹¤
+        if(str.equals("ì…ë ¥")){
             ta.setText("");
             GradeData  gradedata = new GradeData();
             if(tf.getText().equals("")) {
-                ta.append("ÀÌ¸§°ªÀ» ³Ö¾îÁÖ¼¼¿ä!\n");
+                ta.append("ì´ë¦„ê°’ì„ ë„£ì–´ì£¼ì„¸ìš”!\n");
             }
             if(tf1.getText().equals("")) {
-                ta.append("±¹¾îÁ¡¼ö¸¦ ³Ö¾îÁÖ¼¼¿ä!\n");
+                ta.append("êµ­ì–´ì ìˆ˜ë¥¼ ë„£ì–´ì£¼ì„¸ìš”!\n");
             }
             if(tf2.getText().equals("")) {
-                ta.append("¿µ¾îÁ¡¼ö¸¦ ³Ö¾îÁÖ¼¼¿ä!\n");
+                ta.append("ì˜ì–´ì ìˆ˜ë¥¼ ë„£ì–´ì£¼ì„¸ìš”!\n");
             }
             if(tf3.getText().equals("")) {
-                ta.append("¼öÇĞÁ¡¼ö¸¦ ³Ö¾îÁÖ¼¼¿ä!\n");
+                ta.append("ìˆ˜í•™ì ìˆ˜ë¥¼ ë„£ì–´ì£¼ì„¸ìš”!\n");
             }
             if(tf4.getText().equals("")) {
-                ta.append("Å½±¸1Á¡¼ö¸¦ ³Ö¾îÁÖ¼¼¿ä!\n");
+                ta.append("íƒêµ¬1ì ìˆ˜ë¥¼ ë„£ì–´ì£¼ì„¸ìš”!\n");
             }
             if(tf5.getText().equals("")) {
-                ta.append("Å½±¸2Á¡¼ö¸¦ ³Ö¾îÁÖ¼¼¿ä!\n");
+                ta.append("íƒêµ¬2ì ìˆ˜ë¥¼ ë„£ì–´ì£¼ì„¸ìš”!\n");
             }
             else {
  
@@ -172,15 +159,15 @@ public class GradeInput extends JFrame implements ActionListener {
                 tf3.setText("");
                 tf4.setText("");
                 tf5.setText("");
-                ta.setText("¼º°øÀûÀ¸·Î ÀÔ·ÂµÇ¾ú½À´Ï´Ù!\n");
+                ta.setText("ì„±ê³µì ìœ¼ë¡œ ì…ë ¥ë˜ì—ˆìŠµë‹ˆë‹¤!\n");
             }
         }
         
-        //Ãâ·Â ºÎºĞÀÔ´Ï´Ù.
-        else if(str.equals("Ãâ·Â")){
+        //ì¶œë ¥ ë¶€ë¶„ì…ë‹ˆë‹¤.
+        else if(str.equals("ì¶œë ¥")){
             ta.setText("");
             if(AL.size()<1) {
-                ta.setText("Á¤º¸°¡ ¾ø½À´Ï´Ù!\n");
+                ta.setText("ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤!\n");
             }
             else {
                 Descend des = new Descend();
@@ -193,21 +180,21 @@ public class GradeInput extends JFrame implements ActionListener {
             }
         }
 
-        //»èÁ¦±â´É
-        else if(str.equals("»èÁ¦"))
+        //ì‚­ì œê¸°ëŠ¥
+        else if(str.equals("ì‚­ì œ"))
         {
             int count = 0;
  
  
             if(AL.size() < 1) {
-                ta.setText("Á¤º¸°¡ ¾ø½À´Ï´Ù!\n");
+                ta.setText("ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤!\n");
             }
             else {
  
                 for(GradeData ms : AL) {
                     if(ms.getName().equals(tf.getText())) {
                         AL.remove(ms);
-                        ta.setText("¼º°øÀûÀ¸·Î »èÁ¦µÇ¾ú½À´Ï´Ù!");
+                        ta.setText("ì„±ê³µì ìœ¼ë¡œ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤!");
                         count++;
                         break;
                     }
@@ -215,23 +202,18 @@ public class GradeInput extends JFrame implements ActionListener {
                 }
  
                 if(count == 0) {
-                    ta.setText("ÀÏÄ¡ÇÏ´Â Á¤º¸°¡ ¾ø½À´Ï´Ù!\n");
+                    ta.setText("ì¼ì¹˜í•˜ëŠ” ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤!\n");
                 }
  
             }       
         }
-        
-        //Á¾·á ºÎºĞÀÔ´Ï´Ù.
-        else if(str.equals("Á¾·á"))
-        {
-            System.exit(0);
-        }     
+      
  
     }
 }
  
  
-//Á¤·ÄÇØÁÖ´Â Å¬·¡½ºÀÔ´Ï´Ù
+//ì •ë ¬í•´ì£¼ëŠ” í´ë˜ìŠ¤ì…ë‹ˆë‹¤
 class Descend implements Comparator<GradeData> {
     @Override
     public int compare(GradeData o1, GradeData o2) {
