@@ -5,53 +5,51 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class StopWatch extends JFrame{
-//Á¤Àû °´Ã¼
+//ì •ì  ê°ì²´
 private static StopWatch frame = new StopWatch();
 
-private JPanel rootPanel; // ¸ŞÀÎ ÆĞ³Î
-private JLabel xBtn; // ´İ±â ¹öÆ°
-private JLabel timeText; // ½Ã°£ Ç¥½Ã ¶óº§
-private JLabel start, pause, stop; // µ¿ÀÛ ¹öÆ°µé
+private JPanel rootPanel; // ë©”ì¸ íŒ¨ë„
+private JLabel timeText; // ì‹œê°„ í‘œì‹œ ë¼ë²¨
+private JLabel start, pause, stop; // ë™ì‘ ë²„íŠ¼ë“¤
 
-private TimeThread timeTh; // ½Ã°£ ¾²·¹µå
-private long time = 0l, preTime = 0l; // ½Ã°£ °è»êÀ» À§ÇÑ º¯¼öµé
+private TimeThread timeTh; // ì‹œê°„ ì“°ë ˆë“œ
+private long time = 0l, preTime = 0l; // ì‹œê°„ ê³„ì‚°ì„ ìœ„í•œ ë³€ìˆ˜ë“¤
 
-private int moveX, moveY; // À©µµ¿ì ÀÌµ¿½Ã ÃÊ±â ÁÂÇ¥
+private int moveX, moveY; // ìœˆë„ìš° ì´ë™ì‹œ ì´ˆê¸° ì¢Œí‘œ
 
-private Color commonColor = Color.red; // Å¬¸¯ÇÒ ¶§ º¯ÇÏ´Â »ö»ó
+private Color commonColor = Color.red; // í´ë¦­í•  ë•Œ ë³€í•˜ëŠ” ìƒ‰ìƒ
 
 public StopWatch(){
-//ÇÁ·¹ÀÓ ¼³Á¤
+//í”„ë ˆì„ ì„¤ì •
 setSize(400, 300);
 setLayout(new BorderLayout());
-setUndecorated(true);
 setResizable(false);
 consistComponent();
 }
 
-//½ºÅÂÆ½ ÇÔ¼ö·Î ÇÁ·¹ÀÓ ½ÇÇà
+//ìŠ¤íƒœí‹± í•¨ìˆ˜ë¡œ í”„ë ˆì„ ì‹¤í–‰
 private static void visibleFrame(){
 frame.setVisible(true);
 }
 
 private void consistComponent(){
-//·çÆ® ÆĞ³Î »ı¼º, ¹è°æ ¼³Á¤
+//ë£¨íŠ¸ íŒ¨ë„ ìƒì„±, ë°°ê²½ ì„¤ì •
 rootPanel = new JPanel(new BorderLayout());
 rootPanel.setBackground(Color.black);
 
-//µ¿ÀÛ ¹öÆ°µéÀÌ ÀÖ´Â ÆĞ³Î »ı¼º
+//ë™ì‘ ë²„íŠ¼ë“¤ì´ ìˆëŠ” íŒ¨ë„ ìƒì„±
 Panel southPanel = createSouthPanel();
 rootPanel.add(southPanel, "South");
 
-//½Ã°£À» Ç¥½ÃÇÏ´Â ¶óº§ÀÌ ÀÖ´Â ÆĞ³Î »ı¼º
+//ì‹œê°„ì„ í‘œì‹œí•˜ëŠ” ë¼ë²¨ì´ ìˆëŠ” íŒ¨ë„ ìƒì„±
 Panel centerPanel = createCenterPanel();
 rootPanel.add(centerPanel, "Center");
 
-//´İ±â ¹öÆ°ÀÌ ÀÖ´Â ÆĞ³Î »ı¼º
+//ë‹«ê¸° ë²„íŠ¼ì´ ìˆëŠ” íŒ¨ë„ ìƒì„±
 Panel northPanel = createNorthPanel();
 rootPanel.add(northPanel, "North");
 
-//·çÆ® ÆĞ³Î ºÎÂø
+//ë£¨íŠ¸ íŒ¨ë„ ë¶€ì°©
 setContentPane(rootPanel);
 }
 
@@ -62,16 +60,10 @@ constraints2.gridx = 0; constraints2.gridy = 0;
 constraints2.weightx = 1; constraints2.weighty = 1;
 
 Panel barPanel= new Panel(new GridBagLayout());
-xBtn = new JLabel(" X ");
-xBtn.setForeground(Color.white);
-xBtn.setOpaque(true);
-xBtn.setBackground(Color.gray);
-xBtn.setFont(new Font("Gothic", Font.BOLD, 30));
-xBtn.addMouseListener(myMouse);
+
 
 barPanel.addMouseMotionListener(myMotion);
 barPanel.addMouseListener(myMouse);
-barPanel.add(xBtn, constraints2);
 
 return barPanel;
 }
@@ -91,7 +83,7 @@ constraints.gridx = 0;
 constraints.gridy = 1;
 centerPanel.add(timeText, constraints);
 
-JLabel title = new JLabel("½ºÅ¾¿öÄ¡");
+JLabel title = new JLabel("ìŠ¤íƒ‘ì›Œì¹˜");
 title.setForeground(Color.white);
 title.setFont(new Font("Gothic", Font.BOLD, 30));
 constraints.gridx = 0;
@@ -105,7 +97,7 @@ return centerPanel;
 }
 
 private Panel createSouthPanel(){
-//µ¿ÀÛ ¹öÆ°µé ¼³Á¤
+//ë™ì‘ ë²„íŠ¼ë“¤ ì„¤ì •
 start = new JLabel("START");
 pause = new JLabel("PAUSE");
 stop= new JLabel("STOP");
@@ -195,9 +187,7 @@ private class MyMouse implements MouseListener{
 public void mouseEntered(MouseEvent e) {
 Object o = e.getSource();
 
-if(o.equals(xBtn)){
-xBtn.setBackground(commonColor);
-}else if(o.equals(start)){
+if(o.equals(start)){
 start.setForeground(commonColor);
 }else if(o.equals(pause)){
 pause.setForeground(commonColor);
@@ -211,9 +201,7 @@ public void mouseClicked(MouseEvent e) {
 
 public void mouseExited(MouseEvent e) {
 Object o = e.getSource();
-if(o.equals(xBtn)){
-xBtn.setBackground(Color.gray);
-}else if(o.equals(start)){
+ if(o.equals(start)){
 start.setForeground(Color.white);
 }else if(o.equals(pause)){
 pause.setForeground(Color.white);
@@ -224,9 +212,7 @@ stop.setForeground(Color.white);
 
 public void mousePressed(MouseEvent e) {
 Object o = e.getSource();
-if(o.equals(xBtn)){
-System.exit(0);
-}else if(o.equals(start)){
+if(o.equals(start)){
 start();
 }else if(o.equals(pause)){
 pause();
