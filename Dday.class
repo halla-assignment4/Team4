@@ -1,6 +1,6 @@
 package asd;
 
-public class D-day {
+public class Dday {
 
 	public static void main(String[] args) {
 		java.util.Calendar cal = java.util.Calendar.getInstance();
