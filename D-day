@@ -1,0 +1,29 @@
+package asd;
+
+public class asdw {
+
+	public static void main(String[] args) {
+		java.util.Calendar cal = java.util.Calendar.getInstance();
+		
+
+		int year = 2018;//2018 대신 지정된 연도
+		int month = 12;//                  월
+		int date = 25;//                   일
+
+		long today = cal.getTimeInMillis(); // 오늘 날짜
+
+		cal.set(year, month-1, date); //cal 날짜를 지정된 D day 연, 월-1, 일로 변경
+
+		long setday = cal.getTimeInMillis(); // D day를 TimeMillis로
+		long Dday = (today - setday) / (60*60*24*1000); //밀리초를 일수로
+		if(Dday == 0)
+			System.out.println("D-Day");
+		
+		else if(Dday > 0)
+			System.out.println("D+" + Dday);
+		else
+		System.out.println("D" + Dday);
+		
+	}
+
+}
